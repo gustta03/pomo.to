@@ -11,23 +11,40 @@
 
   <body>
     <div class="toast">
-      <div class="toast--content">mensagem aqui</div>
+      <div class="toast--content">
+        <img src="img/ponto-de-interrogacao.png" />
+      </div>
+      <div class="card hidden">
+        <div class="card-content">
+          <div class="close">X</div>
+          <h1>O que é a técnica Pomodoro?</h1>
+          <p>
+            A técnica, aliás, foi desenvolvida no final dos anos 80 pelo
+            italiano Francesco Cirillo, que procurava uma maneira de aumentar
+            sua produtividade nos estudos durante os primeiros anos de
+            universidade. Para isso, ele utilizou um timer de cozinha para
+            organizar suas tarefas.
+          </p>
+          <p>
+            Assim, seu timer tinha o formato de um tomate (pomodoro, em
+            italiano) e girava durante 25 minutos, emitindo um barulho forte ao
+            final desse prazo. Nesse meio tempo, Cirillo se concentrava nas suas
+            tarefas sem interrupções (mesmo!), mantendo-se 100% focado. Ao
+            perceber os resultados satisfatórios, divulgou sua técnica em 1992.
+          </p>
+        </div>
+      </div>
     </div>
     <div class="timer--box">
-      <div class="timer"><span id="minutes">25</span>:<span id="seconds">00</span> </div>
+      <div class="timer">
+        <span id="minutes">00:00</span>
+      </div>
       <div class="timer--circles">
-        <div class="circle-one">
-          <div class="remove1">-</div>
-          <div class="content">25</div>
-          <div class="add1">+</div>
-        </div>
         <div class="circle-two">
-          <div class="content-start">start</div>
+          <div class="content-start" onclick="timers()">start</div>
         </div>
         <div class="circle-tree">
-          <div class="remove2">-</div>
-          <div class="content">5</div>
-          <div class="add2">+</div>
+          <div class="content-pause">pause</div>
         </div>
       </div>
     </div>
