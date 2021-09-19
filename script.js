@@ -36,6 +36,7 @@ start.onclick = function timers() {
   }
   setTime = setTimeout(timers, 1000);
   setTimeout(setTime)
+  clearInterval(setPause);
 }
 
 ps.onclick = function pause() {
@@ -57,8 +58,8 @@ ps.onclick = function pause() {
     return;
   }
   setPause = setTimeout(pause, 1000);
-  setTimeout(setPause)
-  clearInterval(setTime)
+  setTimeout(setPause);
+  clearInterval(setTime);
 };
 
 let popup = document.querySelector(".card");
