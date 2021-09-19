@@ -77,7 +77,7 @@ body {
   width: 500px;
   border-radius: 10px;
   color: #000;
-  height: 300px;
+  height: auto;
 }
 
 .card .card-content p{
@@ -91,4 +91,14 @@ body {
 .close{
   text-align: end;
   cursor: pointer;
+}
+
+@media (min-width: 320px) and (max-width: 587px){
+  .timer--box .timer{
+     font-size: 7.5rem;
+  }
+  .card .card-content{
+     width: 70vw;
+    
+  }
 }
