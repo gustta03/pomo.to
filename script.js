@@ -6,7 +6,8 @@ const ps = document.querySelector(".content-pause");
 const card = document.querySelector(".toast--content img");
 const toast = document.querySelector(".toast");
 let audio = new Audio("./audio/end.mp3");
-let interval;
+let setTime;
+let setPause;
 let min = 24;
 let secs = 59;
 let minP = 4;
@@ -33,8 +34,9 @@ start.onclick = function timers() {
     timer.innerHTML = `${min}:${secs}`;
     return;
   }
-  setTimeout(timers, 1000);
-};
+  setTime = setTimeout(timers, 1000);
+  setTimeout(setTime)
+}
 
 ps.onclick = function pause() {
   timer.innerHTML = `${minP}:${secsP}`;
@@ -54,7 +56,9 @@ ps.onclick = function pause() {
     audio.play();
     return;
   }
-  setTimeout(pause, 1000);
+  setPause = setTimeout(pause, 1000);
+  setTimeout(setPause)
+  clearInterval(setTime)
 };
 
 let popup = document.querySelector(".card");
