@@ -8,52 +8,56 @@ const toast = document.querySelector(".toast");
 let audio = new Audio("./audio/end.mp3");
 let setTime;
 let setPause;
-let min = 24;
-let secs = 59;
-let minP = 4;
-let secsP = 59;
+let minutesObj = {
+  min: 24,
+  secs: 59,
+  minP: 4,
+  secsP: 59,
+  resetMin: 0,
+  resetSec: 0,
+};
 
 start.onclick = function timers() {
-  timer.innerHTML = `${min}:${secs}`;
-  secs--;
-  if (secs <= 59) {
-    timer.innerHTML = `${min}:${secs}`;
+  timer.innerHTML = `${minutesObj.min}:${minutesObj.secs}`;
+  minutesObj.secs--;
+  if (minutesObj.secs <= 59) {
+    timer.innerHTML = `${minutesObj.min}:${minutesObj.secs}`;
   }
-  if (secs === 0) {
+  if (minutesObj.secs === 0) {
     secs = 59;
     min--;
-    timer.innerHTML = `${min}:${secs}`;
+    timer.innerHTML = `${minutesObj.min}:${minutesObj.secs}`;
   }
-  if (secs <= 9) {
-    timer.innerHTML = `${min}:0${secs}`;
+  if (minutesObj.secs <= 9) {
+    timer.innerHTML = `${minutesObj.min}:0${minutesObj.secs}`;
   }
-  if (min <= 0) {
+  if (minutesObj.min <= 0) {
     audio.play();
     min = 24;
     secs = 59;
-    timer.innerHTML = `${min}:${secs}`;
+    timer.innerHTML = `${minutesObj.min}:${minutesObj.secs}`;
     return;
   }
   setTime = setTimeout(timers, 1000);
-  setTimeout(setTime)
+  setTimeout(setTime);
   clearInterval(setPause);
-}
+};
 
 ps.onclick = function pause() {
-  timer.innerHTML = `${minP}:${secsP}`;
-  secsP--;
-  if (secsP <= 59) {
-    timer.innerHTML = `${minP}:${secsP}`;
+  timer.innerHTML = `${minutesObj.minP}:${minutesObj.secsP}`;
+  minutesObj.secsP--;
+  if (minutesObj.secsP <= 59) {
+    timer.innerHTML = `${minutesObj.minP}:${minutesObj.secsP}`;
   }
-  if (secsP <= 0) {
-    secsP = 59;
-    minP--;
-    timer.innerHTML = `${minP}:${secsP}`;
+  if (minutesObj.secsP <= 0) {
+    minutesObj.secsP = 59;
+    minutesObj.minP--;
   }
-  if (minP <= 0) {
-    secsP = 59;
-    minP = 5;
-    timer.innerHTML = `${minP}:${secsP}`;
+  timer.innerHTML = `${minutesObj.minP}:${minutesObj.secsP}`;
+  if (minutesObj.minP <= 0) {
+    minutesObj.secsP = 59;
+    minutesObj.minP = 5;
+    timer.innerHTML = `${minutesObj.minP}:${minutesObj.secsP}`;
     audio.play();
     return;
   }
@@ -71,4 +75,12 @@ let closePop = document.querySelector(".close");
 
 closePop.addEventListener("click", () => {
   popup.classList.add("hidden");
+});
+
+let resetButton = document.querySelector(".circle-reset");
+
+resetButton.addEventListener("click", () => {
+  timer.innerHTML = `0${minutesObj.resetMin}:0${minutesObj.resetSec}`;
+  clearInterval(setTime);
+  clearInterval(setPause);
 });
