@@ -24,8 +24,8 @@ start.onclick = function timers() {
     timer.innerHTML = `${minutesObj.min}:${minutesObj.secs}`;
   }
   if (minutesObj.secs === 0) {
-    secs = 59;
-    min--;
+    minutesObj.secs = 59;
+    minutesObj.min--;
     timer.innerHTML = `${minutesObj.min}:${minutesObj.secs}`;
   }
   if (minutesObj.secs <= 9) {
@@ -33,8 +33,8 @@ start.onclick = function timers() {
   }
   if (minutesObj.min <= 0) {
     audio.play();
-    min = 24;
-    secs = 59;
+    minutesObj.min = 24;
+    minutesObj.secs = 59;
     timer.innerHTML = `${minutesObj.min}:${minutesObj.secs}`;
     return;
   }
@@ -83,4 +83,5 @@ resetButton.addEventListener("click", () => {
   timer.innerHTML = `0${minutesObj.resetMin}:0${minutesObj.resetSec}`;
   clearInterval(setTime);
   clearInterval(setPause);
+  console.log(minutesObj)
 });
