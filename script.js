@@ -85,3 +85,12 @@ resetButton.addEventListener("click", () => {
   clearInterval(setPause);
   console.log(minutesObj)
 });
+
+const adicionarIimer = () => {
+  timer.innerHTML = `${minutesObj.min += 5}:${minutesObj.secs}`;
+  clearInterval(setTime);
+  clearInterval(setPause);
+}
+
+// document.querySelector('.sub').addEventListener('click', subtrairTimer)
+document.querySelector('.add').addEventListener('click', adicionarIimer)
